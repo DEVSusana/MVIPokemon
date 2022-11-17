@@ -1,2 +1,2 @@
-# MVIPokemon
-Pokedex using MVI and compose
+# MVI-Poked-ex
+
