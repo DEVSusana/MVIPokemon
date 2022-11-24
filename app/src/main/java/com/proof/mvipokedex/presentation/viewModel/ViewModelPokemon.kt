@@ -63,7 +63,7 @@ class ViewModelPokemon(
         }
     }
 
-    val _getDetail: MutableLiveData<Resource<Pokemon>> = MutableLiveData()
+    private val _getDetail: MutableLiveData<Resource<Pokemon>> = MutableLiveData()
     val getDetail get() = _getDetail
 
     private fun checkInfoPokemon(name: String) {

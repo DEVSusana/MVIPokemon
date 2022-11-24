@@ -28,7 +28,7 @@ import com.proof.mvipokedex.view.ui.theme.TypeIce
 
 @OptIn(ExperimentalCoilApi::class, ExperimentalMaterialApi::class)
 @Composable
-fun PokemonItem(pokemon: Result, vm: ViewModelPokemon, onButtonClick: () -> Unit) {
+fun PokemonItem(pokemon: Result, vm: ViewModelPokemon, onButtonClick: (String) -> Unit) {
     Card(
         modifier = Modifier
             .padding(10.dp)
@@ -42,8 +42,9 @@ fun PokemonItem(pokemon: Result, vm: ViewModelPokemon, onButtonClick: () -> Unit
                 .padding(5.dp)
                 .fillMaxWidth()
                 .clickable (
-                    onClick = onButtonClick
-                ),
+                    onClick = {
+                        onButtonClick(pokemon.name)
+                    }),
             verticalAlignment = Alignment.CenterVertically
         ) {
             vm.pokemonName.value = pokemon.name

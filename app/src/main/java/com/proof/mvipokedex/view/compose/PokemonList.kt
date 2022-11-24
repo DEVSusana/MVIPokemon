@@ -18,7 +18,7 @@ import java.lang.Exception
 fun PokemonList(
     pokemons: Flow<PagingData<Result>>,
     vm: ViewModelPokemon,
-    onButtonClick: () -> Unit
+    onButtonClick: (String) -> Unit
 ) {
     val resultItems: LazyPagingItems<Result> = pokemons.collectAsLazyPagingItems()
     LazyColumn {
