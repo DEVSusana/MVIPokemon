@@ -10,6 +10,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.proof.mvipokedex.presentation.intent.PokemonIntent
 import com.proof.mvipokedex.presentation.state.PokemonState
 import com.proof.mvipokedex.presentation.viewModel.ViewModelFactoryPokemon
@@ -50,7 +51,7 @@ class PokemonDetailFragment : Fragment() {
             MVIComposeTheme {
                 when (val state = pokemonViewModel.state.value) {
                     is PokemonState.Loading -> LoadingScreen()
-                    is PokemonState.PokemonInfo -> PokemonDetail(pokemonViewModel)
+                    is PokemonState.PokemonInfo -> PokemonDetail(pokemonViewModel, this@PokemonDetailFragment.findNavController())
                     is PokemonState.Error -> {
                         Toast.makeText(LocalContext.current, state.error, Toast.LENGTH_SHORT).show()
                     }

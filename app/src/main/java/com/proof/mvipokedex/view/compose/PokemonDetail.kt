@@ -20,6 +20,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.proof.mvipokedex.data.model.Pokemon
 import com.proof.mvipokedex.data.utils.Resource
 import com.proof.mvipokedex.presentation.state.PokemonState
@@ -28,9 +29,9 @@ import com.proof.mvipokedex.view.ui.theme.TypeIce
 
 
 @Composable
-fun PokemonDetail( viewModelPokemon: ViewModelPokemon) {
+fun PokemonDetail( viewModelPokemon: ViewModelPokemon, navController: NavController) {
     BackHandler() {
-
+        navController.popBackStack()
     }
 
     when (viewModelPokemon.getDetail.value) {
